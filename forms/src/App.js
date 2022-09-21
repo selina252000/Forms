@@ -5,7 +5,7 @@ import {Form,Button,Checkbox,Input, Radio,Select,Row, Col} from "antd";
 
 export const App = () => {
 
-  const onClick = (values) =>{
+  const finish = (values) =>{
     console.log(values);
   }
   return (
@@ -16,20 +16,21 @@ export const App = () => {
         labelCol={{span: 8}}
         wrapperCol={{span: 14}}
         layout="horizontal"
+        onFinish={finish}
         
       >
       <Form.Item label="User Name"  name ="username">
           <Input placeholder =  "enter your name"/>
         </Form.Item>
         
-        <Form.Item label="Gender">
+        <Form.Item label="Gender" name = "gender">
           <Radio.Group>
             <Radio value="male"> Male </Radio>
             <Radio value="female"> Female </Radio>
           </Radio.Group>
         </Form.Item>
         
-        <Form.Item label="Select">
+        <Form.Item label="Select" name = "select">
           <Select>
             <Select.Option value="demo1">audi</Select.Option>
             <Select.Option value="demo2">bmw</Select.Option>
@@ -40,7 +41,7 @@ export const App = () => {
           <Checkbox>Checkbox</Checkbox>
         </Form.Item>
         <Form.Item label="Button">
-          <Button   block type ="primary" onClick ={onClick}>Submit</Button>
+          <Button   block type ="primary"   htmlType="submit">Submit</Button>
         </Form.Item>
       </Form>
       </Col>
